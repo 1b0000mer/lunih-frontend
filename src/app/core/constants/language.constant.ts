@@ -109,6 +109,7 @@ export const LanguageConstant = {
     USER_ACCOUNT: 'Users & Account',
     POST_MANAGEMENT: 'Post Management',
     POST: 'Post',
+    APPROVE_STUDENT: 'Approve Student',
 
     //User_account
 
@@ -124,6 +125,9 @@ export const LanguageConstant = {
     POST_END_DATE: 'End date',
     POST_STUDENT_LIST: 'Student applied list',
     POST_QUEUE_LIST: 'Student queue list',
+
+    POST_TITLE: 'Post title',
+    NUM_SLOT: 'Slots',
   },
 
   lv: {

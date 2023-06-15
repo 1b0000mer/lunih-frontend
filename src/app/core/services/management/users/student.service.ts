@@ -48,18 +48,13 @@ export class StudentService {
     .pipe(catchError(this.handleErrorService.handleError));
    }
 
-   update(model: Student, id: number): Observable<Student> {
-    return this.http.put<Student>(this.apiUrl + `/${id}`, model)
+   update(model: Student, studentID: string): Observable<Student> {
+    return this.http.put<Student>(this.apiUrl + `/${studentID}`, model)
     .pipe(catchError(this.handleErrorService.handleError));
    }
 
-   changeStatus(id: number): Observable<Student> {
-    return this.http.delete<Student>(this.apiUrl + '/change-status' + `/${id}`)
-    .pipe(catchError(this.handleErrorService.handleError));
-   }
-
-   delete(id: number): Observable<Student> {
-    return this.http.delete<Student>(this.apiUrl + `/${id}`)
+   delete(studentID: string): Observable<Student> {
+    return this.http.delete<Student>(this.apiUrl + `/${studentID}`)
     .pipe(catchError(this.handleErrorService.handleError));
    }
 }

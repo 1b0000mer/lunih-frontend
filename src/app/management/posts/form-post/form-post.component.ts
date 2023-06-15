@@ -113,7 +113,7 @@ export class FormPostComponent implements OnInit{
       queueList: [[]],
       leader: [''],
       deliverables: [[]],
-      author: [],
+      author: [-1],
     })
   }
 

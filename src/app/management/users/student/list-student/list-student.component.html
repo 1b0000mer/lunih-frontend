@@ -1,1 +1,67 @@
-<p>list-student works!</p>
+<app-breadcrumb [breadcrumb]="breadcrumObj"></app-breadcrumb>
+<div nz-row>
+  <div nz-col nzSpan="12">
+    <span class="text-title">{{breadcrumObj.heading}}</span>
+  </div>
+  <div nz-col nzSpan="12" class="text-right">
+    <nz-input-group nzSearch [nzAddOnAfter]="searchIcon" class="search-box mr-right-5">
+      <input type="text" nz-input [placeholder]="langData[langCode]['SEARCH']" [(ngModel)]="searchValue"
+        (keyup.enter)="getDataPaging(true)" />
+      <ng-template #searchIcon>
+        <button nz-button nzType="primary" nzSearch (click)="getDataPaging(true)"><i class="fas fa-search"></i></button>
+      </ng-template>
+    </nz-input-group>
+    <button nz-button class="nz-btn-green" (click)="openModal(formModal)">
+      <i class="fas fa-plus mr-right-5"></i>{{langData[langCode]['ADD']}}</button>
+  </div>
+</div>
+<hr>
+<nz-table #table class="table-border table-cell-middle table-margin-bot" nzSize="middle" nzShowPagination="false" [nzData]="listStudent.data!" [nzScroll]="{x: '500px'}">
+  <thead>
+    <tr>
+      <th nzAlign="center" nzWidth="50px">{{langData[langCode]['NO']}}</th>
+      <th nzAlign="center" nzWidth="100px">{{langData[langCode]['STUDENT_ID']}}</th>
+      <th nzAlign="center" nzWidth="150px">{{langData[langCode]['STUDENT_FIRST_NAME']}}</th>
+      <th nzAlign="center" nzWidth="150px">{{langData[langCode]['STUDENT_SUR_NAME']}}</th>
+      <th nzAlign="center" nzWidth="100px">{{langData[langCode]['BIRTHDAY']}}</th>
+      <th nzAlign="center" nzWidth="150px">{{langData[langCode]['PROGRAM_NAME']}}</th>
+      <th nzAlign="center" nzWidth="100px">{{langData[langCode]['STATUS']}}</th>
+      <th nzAlign="center" nzWidth="100px"><i class="fas fa-cog"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of listStudent.data; let i = index">
+      <td nzAlign="center">
+        {{ i + 1 + (listStudent.currentPage - 1) * listStudent.limit}}
+      </td>
+      <td nzAlign="center">
+        {{ student.studentID }}
+      </td>
+      <td nzAlign="center">
+        {{ student.firstName }}
+      </td>
+      <td nzAlign="center">
+        {{ student.surName }}
+      </td>
+      <td nzAlign="center">
+        {{ student.birthDay | date: 'dd MMM yyyy' }}
+      </td>
+      <td nzAlign="center">
+        {{ langCode === 'en' ? student.program.nameEn : student.program.nameLv }}
+      </td>
+      <td nzAlign="center">
+        <nz-tag (click)="changeStatus(student.account.id)" nzColor="success" *ngIf="student.account.status">{{langData[langCode]['ACTIVE']}}</nz-tag>
+        <nz-tag (click)="changeStatus(student.account.id)" nzColor="error" *ngIf="!student.account.status">{{langData[langCode]['INACTIVE']}}</nz-tag>
+      </td>
+      <td nzAlign="center">
+        <button nz-button nzType="primary" type="button" (click)="openModal(formModal, student)"><i class="fas fa-edit"></i></button>
+        <button nz-button nzDanger type="button" class="mr-left-5" (click)="delete(student.studentID)"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<table-paginate [pageConfig]="listStudent" (pageChange)="pageChange($event!)"></table-paginate>
+
+<ng-template #formModal>
+  <app-form-student [modalData]="modalData!" (closeModal)="closeModal($event!)"></app-form-student>
+</ng-template>

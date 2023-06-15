@@ -47,6 +47,7 @@ export const UrlConstant = {
 
       USER_ACCOUNT: '/management/users',
       STUDENT: '/management/users/student',
+      APPROVE_STUDENT: '/management/users/student/approve',
       UNIVERSITY: '/management/users/university',
       COMPANY: '/management/users/company',
       ADMIN: '/management/users/admin',

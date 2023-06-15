@@ -22,9 +22,9 @@
       <th nzAlign="center" nzWidth="50px">{{langData[langCode]['NO']}}</th>
       <th nzAlign="center" nzWidth="150px">{{langData[langCode]['POST_TITLE']}}</th>
       <th nzAlign="center" nzWidth="100px">{{langData[langCode]['POST_TYPE']}}</th>
-      <th nzAlign="center" nzWidth="200px">{{langData[langCode]['INDUSTRY_NAME']}}</th>
-      <th nzAlign="center" nzWidth="100px">{{langData[langCode]['START_DATE']}}</th>
-      <th nzAlign="center" nzWidth="100px">{{langData[langCode]['END_DATE']}}</th>
+      <th nzAlign="center" nzWidth="200px">{{langData[langCode]['INDUSTRY']}}</th>
+      <th nzAlign="center" nzWidth="100px">{{langData[langCode]['POST_START_DATE']}}</th>
+      <th nzAlign="center" nzWidth="100px">{{langData[langCode]['POST_END_DATE']}}</th>
       <th nzAlign="center" nzWidth="50px">{{langData[langCode]['NUM_SLOT']}}</th>
       <th nzAlign="center" nzWidth="100px">{{langData[langCode]['STATUS']}}</th>
       <th nzAlign="center" nzWidth="100px"><i class="fas fa-cog"></i></th>
@@ -51,7 +51,7 @@
         {{ post.endDate | date: 'dd MMM yyyy' }}
       </td>
       <td nzAlign="center">
-        {{ post.numSlot }}
+        {{ post.studentList?.length + '/' + post.numSlot }}
       </td>
       <td nzAlign="center">
         <nz-tag (click)="changeStatus(post.id)" nzColor="success" *ngIf="post.status">{{langData[langCode]['ACTIVE']}}</nz-tag>

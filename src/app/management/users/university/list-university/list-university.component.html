@@ -1,1 +1,59 @@
-<p>list-university works!</p>
+<app-breadcrumb [breadcrumb]="breadcrumObj"></app-breadcrumb>
+<div nz-row>
+  <div nz-col nzSpan="12">
+    <span class="text-title">{{breadcrumObj.heading}}</span>
+  </div>
+  <div nz-col nzSpan="12" class="text-right">
+    <nz-input-group nzSearch [nzAddOnAfter]="searchIcon" class="search-box mr-right-5">
+      <input type="text" nz-input [placeholder]="langData[langCode]['SEARCH']" [(ngModel)]="searchValue"
+        (keyup.enter)="getDataPaging(true)" />
+      <ng-template #searchIcon>
+        <button nz-button nzType="primary" nzSearch (click)="getDataPaging(true)"><i class="fas fa-search"></i></button>
+      </ng-template>
+    </nz-input-group>
+    <button nz-button class="nz-btn-green" (click)="openModal(formModal)">
+      <i class="fas fa-plus mr-right-5"></i>{{langData[langCode]['ADD']}}</button>
+  </div>
+</div>
+<hr>
+<nz-table #table class="table-border table-cell-middle table-margin-bot" nzSize="middle" nzShowPagination="false" [nzData]="listUniversity.data!" [nzScroll]="{x: '500px'}">
+  <thead>
+    <tr>
+      <th nzAlign="center" nzWidth="50px">{{langData[langCode]['NO']}}</th>
+      <th nzAlign="center" nzWidth="150px">{{langData[langCode]['UNIVERSITY_EMAIL']}}</th>
+      <th nzAlign="center" nzWidth="150px">{{langData[langCode]['UNIVERSITY_NAME']}}</th>
+      <th nzAlign="center" nzWidth="200px">{{langData[langCode]['PROGRAM']}}</th>
+      <th nzAlign="center" nzWidth="100px">{{langData[langCode]['STATUS']}}</th>
+      <th nzAlign="center" nzWidth="100px"><i class="fas fa-cog"></i></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let university of listUniversity.data; let i = index">
+      <td nzAlign="center">
+        {{ i + 1 + (listUniversity.currentPage - 1) * listUniversity.limit}}
+      </td>
+      <td nzAlign="center">
+        {{ university.account.email }}
+      </td>
+      <td nzAlign="center">
+        {{ university.name }}
+      </td>
+      <td nzAlign="center">
+        <nz-tag *ngFor="let program of university.programList">{{ langCode === 'en' ? program.nameEn : program.nameLv }}</nz-tag>
+      </td>
+      <td nzAlign="center">
+        <nz-tag (click)="changeStatus(university.account.id)" nzColor="success" *ngIf="university.account.status">{{langData[langCode]['ACTIVE']}}</nz-tag>
+        <nz-tag (click)="changeStatus(university.account.id)" nzColor="error" *ngIf="!university.account.status">{{langData[langCode]['INACTIVE']}}</nz-tag>
+      </td>
+      <td nzAlign="center">
+        <button nz-button nzType="primary" type="button" (click)="openModal(formModal, university)"><i class="fas fa-edit"></i></button>
+        <button nz-button nzDanger type="button" class="mr-left-5" (click)="delete(university.id)"><i class="fas fa-trash"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</nz-table>
+<table-paginate [pageConfig]="listUniversity" (pageChange)="pageChange($event!)"></table-paginate>
+
+<ng-template #formModal>
+  <app-form-university [modalData]="modalData!" (closeModal)="closeModal($event!)"></app-form-university>
+</ng-template>

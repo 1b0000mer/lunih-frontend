@@ -6,14 +6,14 @@ export class Student {
   account!: Account;
   firstName!: string;
   surName!: string;
-  birthDay!: Date;
-  gender!: string;
-  phoneNumber!: string;
+  birthDay?: Date;
+  gender?: string;
+  phoneNumber?: string;
   
   //id file
-  fileCertification!: string;
+  fileCertification?: string;
   approved!: boolean;
-  reason!: string;
+  reason?: string;
 
   program!: Program;
 }

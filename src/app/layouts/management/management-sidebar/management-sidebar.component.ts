@@ -82,6 +82,11 @@ export class ManagementSidebarComponent implements OnInit {
           },
           {
             icon: '',
+            title: this.langData[this.langCode]['APPROVE_STUDENT'],
+            routerLink: UrlConstant.ROUTE.MANAGEMENT.APPROVE_STUDENT
+          },
+          {
+            icon: '',
             title: this.langData[this.langCode]['UNIVERSITY'],
             routerLink: UrlConstant.ROUTE.MANAGEMENT.UNIVERSITY
           },

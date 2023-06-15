@@ -1,1 +1,160 @@
-<p>form-company works!</p>
+<form [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['ACCOUNT_EMAIL']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'email')">
+      <input nz-input formControlName="email" type="email">
+      <app-field-error-display [displayError]="isFieldValid(form, 'email')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['ACCOUNT_PASSWORD']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'password')">
+      <input nz-input formControlName="password" type="password">
+      <app-field-error-display [displayError]="isFieldValid(form, 'password')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['COMPANY_NAME']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyName')">
+      <input nz-input formControlName="companyName">
+      <app-field-error-display [displayError]="isFieldValid(form, 'companyName')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['COMPANY_DESCRIPTION']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyDescription')">
+      <textarea nz-input formControlName="companyDescription" nzAutosize></textarea>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['COMPANY_TYPE']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyType')">
+      <nz-select class="w-100" formControlName="companyType" [nzPlaceHolder]="langData[langCode]['CHOOSE_COMPANY_TYPE']">
+        <nz-option [nzLabel]="langData[langCode]['COMPANY_PRIVATE']" [nzValue]="'COMPANY_PRIVATE'"></nz-option>
+        <nz-option [nzLabel]="langData[langCode]['COMPANY_PUBLIC']" [nzValue]="'COMPANY_PUBLIC'"></nz-option>
+        <nz-option [nzLabel]="langData[langCode]['COMPANY_NGO']" [nzValue]="'COMPANY_NGO'"></nz-option>
+        <nz-option [nzLabel]="langData[langCode]['COMPANY_GOVERNMENT']" [nzValue]="'COMPANY_GOVERNMENT'"></nz-option>
+        <nz-option [nzLabel]="langData[langCode]['COMPANY_EDUCATIONAL']" [nzValue]="'COMPANY_EDUCATIONAL'"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['COMPANY_ADDRESS']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyAddress')">
+      <textarea nz-input formControlName="companyAddress" nzAutosize></textarea>
+    </div>
+  </div>
+  
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['COMPANY_WEBSITE']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyWebsite')">
+      <input nz-input formControlName="companyWebsite">
+    </div>
+  </div>
+  
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['INDUSTRY']}}</label><label class="field-required"><sup><i class="fas fa-star-of-life"></i></sup></label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'industryList')">
+      <nz-select nzMode="multiple" class="w-100" nzShowSearch nzServerSearch (nzOnSearch)="searchIndustryValueChanged.next($any($event))" [nzPlaceHolder]="langData[langCode]['CHOOSE_INDUSTRY']" formControlName="industryList">
+        <nz-option *ngFor="let industry of listIndustry.data" [nzLabel]="langCode === 'en' ? industry.nameEn : industry.nameLv" [nzValue]="industry.id">
+        </nz-option>
+      </nz-select>
+      <app-field-error-display [displayError]="isFieldValid(form, 'industryList')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['COMPANY_CONTACT_PERSON_TITLE']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyContactPersonTitle')">
+      <nz-select class="w-100" formControlName="companyContactPersonTitle" [nzPlaceHolder]="langData[langCode]['CHOOSE_COMPANY_CONTACT_PERSON_TITLE']">
+        <nz-option [nzLabel]="langData[langCode]['MR']" [nzValue]="'MR'"></nz-option>
+        <nz-option [nzLabel]="langData[langCode]['MRS']" [nzValue]="'MRS'"></nz-option>
+        <nz-option [nzLabel]="langData[langCode]['MS']" [nzValue]="'MS'"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['COMPANY_CONTACT_PERSON_NAME']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyContactPersonName')">
+      <input nz-input formControlName="companyContactPersonName">
+      <app-field-error-display [displayError]="isFieldValid(form, 'companyContactPersonName')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['COMPANY_CONTACT_PERSON_EMAIL']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyContactPersonEmail')">
+      <input nz-input formControlName="companyContactPersonEmail">
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['COMPANY_CONTACT_PERSON_DEPARTMENT']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyContactPersonDepartment')">
+      <input nz-input formControlName="companyContactPersonDepartment">
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['COMPANY_CONTACT_PERSON_PHONE']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyContactPersonPhoneNumber')">
+      <input nz-input formControlName="companyContactPersonPhoneNumber">
+    </div>
+  </div>
+
+  <div nz-row class="ant-modal-footer fk-modal-footer">
+    <div nz-col nzSpan="24" class="ali-right">
+      <div class="pad-left-form-control" style="display: inline-block;">
+        <button nz-button nzType="default" nzSize="default" type="button" class="nz-btn-red" (click)="onCancel()"><i
+            class="fas fa-times mr-right-5"></i>{{langData[langCode]['CANCEL']}}</button>
+      </div>
+      <div class="pad-left-form-control" style="display: inline-block;">
+        <button nz-button nzType="primary" nzSize="default" type="button" (click)="onSubmit()"><i
+            class="fas fa-save mr-right-5"></i>{{langData[langCode]['SAVE']}}</button>
+      </div>
+    </div>
+  </div>
+</form>

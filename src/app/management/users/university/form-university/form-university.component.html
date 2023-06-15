@@ -1,1 +1,84 @@
-<p>form-university works!</p>
+<form [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['ACCOUNT_EMAIL']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'email')">
+      <input nz-input formControlName="email" type="email">
+      <app-field-error-display [displayError]="isFieldValid(form, 'email')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['ACCOUNT_PASSWORD']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'password')">
+      <input nz-input formControlName="password" type="password">
+      <app-field-error-display [displayError]="isFieldValid(form, 'password')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['UNIVERSITY_NAME']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'name')">
+      <input nz-input formControlName="name">
+      <app-field-error-display [displayError]="isFieldValid(form, 'name')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['UNIVERSITY_ADDRESS']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'address')">
+      <textarea nz-input formControlName="address" nzAutosize></textarea>
+    </div>
+  </div>
+  
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['UNIVERSITY_PHONE_NUMBER']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'phoneNumber')">
+      <input nz-input formControlName="phoneNumber">
+    </div>
+  </div>
+  
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['PROGRAM']}}</label><label class="field-required"><sup><i class="fas fa-star-of-life"></i></sup></label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'programList')">
+      <nz-select nzMode="multiple" class="w-100" nzShowSearch nzServerSearch (nzOnSearch)="searchProgramValueChanged.next($any($event))" [nzPlaceHolder]="langData[langCode]['CHOOSE_PROGRAM']" formControlName="programList">
+        <nz-option *ngFor="let program of listProgram.data" [nzLabel]="langCode === 'en' ? program.nameEn : program.nameLv" [nzValue]="program.id">
+        </nz-option>
+      </nz-select>
+      <app-field-error-display [displayError]="isFieldValid(form, 'programList')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="ant-modal-footer fk-modal-footer">
+    <div nz-col nzSpan="24" class="ali-right">
+      <div class="pad-left-form-control" style="display: inline-block;">
+        <button nz-button nzType="default" nzSize="default" type="button" class="nz-btn-red" (click)="onCancel()"><i
+            class="fas fa-times mr-right-5"></i>{{langData[langCode]['CANCEL']}}</button>
+      </div>
+      <div class="pad-left-form-control" style="display: inline-block;">
+        <button nz-button nzType="primary" nzSize="default" type="button" (click)="onSubmit()"><i
+            class="fas fa-save mr-right-5"></i>{{langData[langCode]['SAVE']}}</button>
+      </div>
+    </div>
+  </div>
+</form>

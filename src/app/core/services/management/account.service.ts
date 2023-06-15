@@ -64,6 +64,10 @@ export class AccountService {
     return this.http.post<Account>(this.apiUrl + '/university', model);
    }
 
+   changeStatus(id: number): Observable<Account> {
+    return this.http.delete<Account>(this.apiUrl + `/${id}`)
+   }
+
   //  update(model: Account, id: number): Observable<Account> {
   //   return this.http.put<Account>(this.apiUrl + `/${id}`, model)
   //   .pipe(catchError(this.handleErrorService.handleError));

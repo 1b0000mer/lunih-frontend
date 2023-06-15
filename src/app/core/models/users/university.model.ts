@@ -5,8 +5,8 @@ export class University {
   id!: number;
   account!: Account;
   name!: string;
-  address!: string;
-  phoneNumber!: string;
+  address?: string;
+  phoneNumber?: string;
   programList!: Program[];
   
 }

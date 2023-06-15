@@ -1,1 +1,114 @@
-<p>form-student works!</p>
+<form [formGroup]="form" (keydown.enter)="$event.preventDefault()">
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['ACCOUNT_EMAIL']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'email')">
+      <input nz-input formControlName="email" type="email">
+      <app-field-error-display [displayError]="isFieldValid(form, 'email')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['ACCOUNT_PASSWORD']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'password')">
+      <input nz-input formControlName="password" type="password">
+      <app-field-error-display [displayError]="isFieldValid(form, 'password')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['STUDENT_ID']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'studentID')">
+      <input nz-input formControlName="studentID">
+      <app-field-error-display [displayError]="isFieldValid(form, 'studentID')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['STUDENT_FIRST_NAME']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'firstName')">
+      <input nz-input formControlName="firstName">
+      <app-field-error-display [displayError]="isFieldValid(form, 'firstName')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['STUDENT_SUR_NAME']}}</label><label class="field-required">*</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'surName')">
+      <input nz-input formControlName="surName">
+      <app-field-error-display [displayError]="isFieldValid(form, 'surName')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['GENDER']}}</label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'gender')">
+      <nz-select class="w-100" formControlName="gender" [nzPlaceHolder]="langData[langCode]['CHOOSE_GENDER']">
+        <nz-option [nzLabel]="langData[langCode]['MALE']" [nzValue]="'MALE'"></nz-option>
+        <nz-option [nzLabel]="langData[langCode]['FEMALE']" [nzValue]="'FEMALE'"></nz-option>
+        <nz-option [nzLabel]="langData[langCode]['OTHER']" [nzValue]="'OTHER'"></nz-option>
+      </nz-select>
+    </div>
+  </div>
+  
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['BIRTH_DAY']}}</label>
+    </div>
+      <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'birthDay')">
+        <nz-date-picker [nzFormat]="'dd/MM/yyyy'" class="w-100" [nzPlaceHolder]="langData[langCode]['BIRTH_DAY']" formControlName="birthDay">
+        </nz-date-picker>
+      </div>
+  </div>
+  
+  <div nz-row class="pad-bot-form">
+    <div nz-col nzSpan="24">
+      <label>{{langData[langCode]['PROGRAM']}}</label><label class="field-required"><sup><i class="fas fa-star-of-life"></i></sup></label>
+    </div>
+    <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'program')">
+      <nz-select class="w-100" nzShowSearch nzServerSearch (nzOnSearch)="searchProgramValueChanged.next($any($event))" [nzPlaceHolder]="langData[langCode]['CHOOSE_PROGRAM']" formControlName="program">
+        <nz-option *ngFor="let program of listProgram.data" [nzLabel]="langCode === 'en' ? program.nameEn : program.nameLv" [nzValue]="program.id">
+        </nz-option>
+      </nz-select>
+      <app-field-error-display [displayError]="isFieldValid(form, 'program')"
+        [errorMsg]="langData[langCode]['CAN_NOT_BE_EMPTY']">
+      </app-field-error-display>
+    </div>
+  </div>
+
+
+  <div nz-row class="ant-modal-footer fk-modal-footer">
+    <div nz-col nzSpan="24" class="ali-right">
+      <div class="pad-left-form-control" style="display: inline-block;">
+        <button nz-button nzType="default" nzSize="default" type="button" class="nz-btn-red" (click)="onCancel()"><i
+            class="fas fa-times mr-right-5"></i>{{langData[langCode]['CANCEL']}}</button>
+      </div>
+      <div class="pad-left-form-control" style="display: inline-block;">
+        <button nz-button nzType="primary" nzSize="default" type="button" (click)="onSubmit()"><i
+            class="fas fa-save mr-right-5"></i>{{langData[langCode]['SAVE']}}</button>
+      </div>
+    </div>
+  </div>
+</form>
