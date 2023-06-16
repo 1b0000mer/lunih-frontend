@@ -68,6 +68,26 @@ export const LanguageConstant = {
     FACULTY_NAME: 'Faculty Name',
     FACULTY_NAME_EN: 'Faculty English Name',
     FACULTY_NAME_LV: 'Faculty Latvian Name',
+    CHOOSE_FACULTY: 'Choose faculty...',
+
+    //Program
+    PROGRAM_NAME: 'Program Name',
+    STUDY_LEVEL: 'Study Level',
+    PROGRAM_NAME_EN: 'Program English Name',
+    PROGRAM_NAME_LV: 'Program Latvian Name',
+    CHOOSE_STUDY_LEVEL: 'Choose study level...',
+    CHOOSE_PROGRAM: 'Choose program...',
+
+    //Industry
+    INDUSTRY_NAME: 'Industry Name',
+    INDUSTRY_NAME_EN: 'Industry English Name',
+    INDUSTRY_NAME_LV: 'Industry Latvian Name',
+    CHOOSE_INDUSTRY: 'Choose industry, mulitple allowed...',
+
+    //Post Type
+    POST_TYPE_NAME: 'Post Type',
+    POST_TYPE_NAME_EN: 'Post Type in English',
+    POST_TYPE_NAME_LV: 'Post Type in Latvian',
 
     //Homepage
     SEARCH: 'Search...',
@@ -110,8 +130,48 @@ export const LanguageConstant = {
     POST_MANAGEMENT: 'Post Management',
     POST: 'Post',
     APPROVE_STUDENT: 'Approve Student',
+    ADDRESS: 'Address',
+    PHONE_NUMBER: 'Phone number',
 
     //User_account
+    ACCOUNT_EMAIL: 'Email',
+    ACCOUNT_PASSWORD: 'Password',
+    GENDER: 'Gender',
+    CHOOSE_GENDER: '(Optional) Select gender...',
+    MALE: 'Male',
+    FEMALE: 'Female',
+    OTHER: 'Other',
+    MR: 'Mr.',
+    MRS: 'Mrs.',
+    MS: 'Ms.',
+
+    //Student
+    STUDENT_ID: 'Student ID',
+    STUDENT_FIRST_NAME: 'Name',
+    STUDENT_SUR_NAME: 'Surname',
+    BIRTHDAY: 'Birthday',
+    CHOOSE_BIRTHDAY: '(Optional) Select date...',
+
+    //University
+    UNIVERSITY_NAME: 'Fullname',
+
+    //Company
+    COMPANY_NAME: 'Company Name',
+    COMPANY_TYPE: 'Company Type',
+    COMPANY_CONTACT_PERSON_NAME: 'Person name',
+    COMPANY_DESCRIPTION: 'Company Description',
+    COMPANY_PRIVATE: 'Private',
+    COMPANY_PUBLIC: 'Public',
+    COMPANY_NGO: 'NGO',
+    COMPANY_GOVERNMENT: 'Government',
+    COMPANY_EDUCATIONAL: 'Educational',
+    COMPANY_OTHER: 'Other',
+    COMPANY_ADDRESS: 'Company Address',
+    COMPANY_WEBSITE: 'Company Website',
+    COMPANY_CONTACT_PERSON_TITLE: 'Person Title',
+    COMPANY_CONTACT_PERSON_EMAIL: 'Person Email',
+    COMPANY_CONTACT_PERSON_DEPARTMENT: 'Person Department',
+    COMPANY_CONTACT_PERSON_PHONE: 'Person Phonenumber',
 
 
     //Post

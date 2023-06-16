@@ -65,7 +65,7 @@
       <label>{{langData[langCode]['GENDER']}}</label>
     </div>
     <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'gender')">
-      <nz-select class="w-100" formControlName="gender" [nzPlaceHolder]="langData[langCode]['CHOOSE_GENDER']">
+      <nz-select nzAllowClear class="w-100" formControlName="gender" [nzPlaceHolder]="langData[langCode]['CHOOSE_GENDER']">
         <nz-option [nzLabel]="langData[langCode]['MALE']" [nzValue]="'MALE'"></nz-option>
         <nz-option [nzLabel]="langData[langCode]['FEMALE']" [nzValue]="'FEMALE'"></nz-option>
         <nz-option [nzLabel]="langData[langCode]['OTHER']" [nzValue]="'OTHER'"></nz-option>
@@ -75,10 +75,10 @@
   
   <div nz-row class="pad-bot-form">
     <div nz-col nzSpan="24">
-      <label>{{langData[langCode]['BIRTH_DAY']}}</label>
+      <label>{{langData[langCode]['BIRTHDAY']}}</label>
     </div>
       <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'birthDay')">
-        <nz-date-picker [nzFormat]="'dd/MM/yyyy'" class="w-100" [nzPlaceHolder]="langData[langCode]['BIRTH_DAY']" formControlName="birthDay">
+        <nz-date-picker [nzFormat]="'dd/MM/yyyy'" class="w-100" [nzPlaceHolder]="langData[langCode]['CHOOSE_BIRTHDAY']" formControlName="birthDay">
         </nz-date-picker>
       </div>
   </div>

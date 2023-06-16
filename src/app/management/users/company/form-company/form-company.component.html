@@ -50,12 +50,13 @@
       <label>{{langData[langCode]['COMPANY_TYPE']}}</label>
     </div>
     <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyType')">
-      <nz-select class="w-100" formControlName="companyType" [nzPlaceHolder]="langData[langCode]['CHOOSE_COMPANY_TYPE']">
+      <nz-select nzAllowClear class="w-100" formControlName="companyType" [nzPlaceHolder]="langData[langCode]['CHOOSE_COMPANY_TYPE']">
         <nz-option [nzLabel]="langData[langCode]['COMPANY_PRIVATE']" [nzValue]="'COMPANY_PRIVATE'"></nz-option>
         <nz-option [nzLabel]="langData[langCode]['COMPANY_PUBLIC']" [nzValue]="'COMPANY_PUBLIC'"></nz-option>
         <nz-option [nzLabel]="langData[langCode]['COMPANY_NGO']" [nzValue]="'COMPANY_NGO'"></nz-option>
         <nz-option [nzLabel]="langData[langCode]['COMPANY_GOVERNMENT']" [nzValue]="'COMPANY_GOVERNMENT'"></nz-option>
         <nz-option [nzLabel]="langData[langCode]['COMPANY_EDUCATIONAL']" [nzValue]="'COMPANY_EDUCATIONAL'"></nz-option>
+        <nz-option [nzLabel]="langData[langCode]['COMPANY_OTHER']" [nzValue]="'COMPANY_OTHER'"></nz-option>
       </nz-select>
     </div>
   </div>
@@ -98,7 +99,7 @@
       <label>{{langData[langCode]['COMPANY_CONTACT_PERSON_TITLE']}}</label>
     </div>
     <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'companyContactPersonTitle')">
-      <nz-select class="w-100" formControlName="companyContactPersonTitle" [nzPlaceHolder]="langData[langCode]['CHOOSE_COMPANY_CONTACT_PERSON_TITLE']">
+      <nz-select nzAllowClear class="w-100" formControlName="companyContactPersonTitle" [nzPlaceHolder]="langData[langCode]['CHOOSE_COMPANY_CONTACT_PERSON_TITLE']">
         <nz-option [nzLabel]="langData[langCode]['MR']" [nzValue]="'MR'"></nz-option>
         <nz-option [nzLabel]="langData[langCode]['MRS']" [nzValue]="'MRS'"></nz-option>
         <nz-option [nzLabel]="langData[langCode]['MS']" [nzValue]="'MS'"></nz-option>
