@@ -51,7 +51,7 @@ export class ManagementSidebarComponent implements OnInit {
             routerLink: UrlConstant.ROUTE.MANAGEMENT.FACULTY
           },
           {
-            icon: '',
+            icon: 'fas fa-tshirt',
             title: this.langData[this.langCode]['PROGRAM'],
             routerLink: UrlConstant.ROUTE.MANAGEMENT.PROGRAM
           },

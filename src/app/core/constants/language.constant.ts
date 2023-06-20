@@ -312,7 +312,7 @@ export const LanguageConstant = {
     FACULTY: 'Fakultāte',
     PROGRAM: 'Programma',
     INDUSTRY: 'Industrija',
-    POST_TYPE: 'Publikācijas veds',
+    POST_TYPE: 'Ierakstu veds',
     USER_ACCOUNT: 'Lietotājs & Konts',
     POST_MANAGEMENT: 'Publikācijas menedžments',
     POST: 'Publikācija',
