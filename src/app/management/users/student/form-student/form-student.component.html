@@ -89,7 +89,7 @@
     </div>
     <div nz-col nzSpan="24" [ngClass]="displayFieldCss(form, 'program')">
       <nz-select class="w-100" nzShowSearch nzServerSearch (nzOnSearch)="searchProgramValueChanged.next($any($event))" [nzPlaceHolder]="langData[langCode]['CHOOSE_PROGRAM']" formControlName="program">
-        <nz-option *ngFor="let program of listProgram.data" [nzLabel]="langCode === 'en' ? program.nameEn : program.nameLv" [nzValue]="program.id">
+        <nz-option *ngFor="let program of listProgram.data" [nzLabel]="langCode === 'en' ? program.studyLevel + ' | ' + program.nameEn : program.studyLevel + ' | ' + program.nameLv" [nzValue]="program.id">
         </nz-option>
       </nz-select>
       <app-field-error-display [displayError]="isFieldValid(form, 'program')"

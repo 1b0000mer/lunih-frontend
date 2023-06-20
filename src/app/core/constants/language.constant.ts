@@ -206,7 +206,7 @@ export const LanguageConstant = {
     ADD_TITLE: 'Izveidot formu',
 
     //System
-    ERR_SYSTEM: 'Something went wrong. lv',
+    ERR_SYSTEM: 'Kaut kas nogāja greizi',
     ERR_CONNECT_SERVER: 'Nav iespējams sazināties ar serveri!',
     ACCOUNT_WITHOUT_PRIVILEDGE: 'Jums nav piekļuves tiesības!',
 
@@ -218,9 +218,9 @@ export const LanguageConstant = {
     CAN_NOT_BE_EMPTY:'Šī sadaļa nevar būt tukša!',
 
     //Study level
-    BACHELOR: 'Bachelor lv',
-    MASTER: 'Master lv',
-    DOCTORAL: 'Doctoral lv',
+    BACHELOR: 'Bakalaurs',
+    MASTER: 'Maģistrantūra',
+    DOCTORAL: 'Doktorantūra',
 
     //Authentication
     USER_INFO: 'Lietotāja informācija',
@@ -241,16 +241,16 @@ export const LanguageConstant = {
     LOG_OUT: 'Izrakstīties',
     
     OR: 'Vai',
-    NO: 'Nē', //skaitliskā?
+    NO: 'Nr.',
     STATUS: 'Statuss',
     ACTIVE: 'Aktīvs',
     INACTIVE: 'Neaktīvs',
 
     //Paginate
-    NUMBER_LIST: 'Dalībnieku skaits', //preces numurs?
+    NUMBER_LIST: 'Vienību skaits',
     PAGE: 'lapa',
     TOTAL: 'Kopā',
-    ITEM: 'dalībnieks(i)',
+    ITEM: 'vienības',
 
     //Faculty
     FACULTY_NAME: 'Fakultātes nosaukums',
@@ -258,23 +258,23 @@ export const LanguageConstant = {
     FACULTY_NAME_LV: 'Fakultātes nosaukums LV',
 
     //Program
-    PROGRAM_NAME: 'Program Name lv',
-    STUDY_LEVEL: 'Study Level lv',
-    PROGRAM_NAME_EN: 'Program English Name lv',
-    PROGRAM_NAME_LV: 'Program Latvian Name lv',
-    CHOOSE_STUDY_LEVEL: 'Choose study level... lv',
-    CHOOSE_PROGRAM: 'Choose program... lv',
+    PROGRAM_NAME: 'Programmas nosaukums',
+    STUDY_LEVEL: 'Studiju līmenis',
+    PROGRAM_NAME_EN: 'Programmas nosaukums EN',
+    PROGRAM_NAME_LV: 'Programmas nosaukums LV',
+    CHOOSE_STUDY_LEVEL: 'Izvēlies studiju līmeni...',
+    CHOOSE_PROGRAM: 'Izvēlies programmu...',
 
     //Industry
-    INDUSTRY_NAME: 'Industry Name lv',
-    INDUSTRY_NAME_EN: 'Industry English Name lv',
-    INDUSTRY_NAME_LV: 'Industry Latvian Name lv',
-    CHOOSE_INDUSTRY: 'Choose industry, mulitple allowed... lv',
+    INDUSTRY_NAME: 'Industrijas nosaukums',
+    INDUSTRY_NAME_EN: 'Industrijas nosaukums EN',
+    INDUSTRY_NAME_LV: 'Industrijas nosaukums LV',
+    CHOOSE_INDUSTRY: 'Izvēlies industriju, iespējami vairāki varianti...',
 
     //Post Type
-    POST_TYPE_NAME: 'Post Type lv',
-    POST_TYPE_NAME_EN: 'Post Type in English lv',
-    POST_TYPE_NAME_LV: 'Post Type in Latvian lv',
+    POST_TYPE_NAME: 'Ieraksts veids',
+    POST_TYPE_NAME_EN: 'Ieraksta veids EN',
+    POST_TYPE_NAME_LV: 'Ieraksta veids LV',
 
     //Homepage
     SEARCH: 'Meklē...',
@@ -316,64 +316,63 @@ export const LanguageConstant = {
     USER_ACCOUNT: 'Lietotājs & Konts',
     POST_MANAGEMENT: 'Publikācijas menedžments',
     POST: 'Publikācija',
-    APPROVE_STUDENT: 'Approve Student lv',
+    APPROVE_STUDENT: 'Apstiprināt studentu',
     ADDRESS: 'Address lv',
-    PHONE_NUMBER: 'Phone number lv',
+    PHONE_NUMBER: 'Telefona numurs',
 
     //User_account
-    ACCOUNT_EMAIL: 'Email lv',
-    ACCOUNT_PASSWORD: 'Password lv',
-    GENDER: 'Gender lv',
-    CHOOSE_GENDER: '(Optional) Select gender... lv',
-    MALE: 'Male lv',
-    FEMALE: 'Female lv',
-    OTHER: 'Other lv',
+    ACCOUNT_EMAIL: 'E-pasts',
+    ACCOUNT_PASSWORD: 'Parole',
+    GENDER: 'Dzimums',
+    CHOOSE_GENDER: 'Izvēlies dzimumu...',
+    MALE: 'Vīriešu',
+    FEMALE: 'Sieviešu',
+    OTHER: 'Cits',
     MR: 'Mr.',
     MRS: 'Mrs.',
     MS: 'Ms.',
 
     //Student
-    STUDENT_ID: 'Student ID',
-    STUDENT_FIRST_NAME: 'Name lv',
-    STUDENT_SUR_NAME: 'Surname lv',
-    BIRTHDAY: 'Birthday lv',
-    CHOOSE_BIRTHDAY: '(Optional) Select date...',
+    STUDENT_ID: 'Studenta ID',
+    STUDENT_FIRST_NAME: 'Vārds',
+    STUDENT_SUR_NAME: 'Uzvārds',
+    BIRTHDAY: 'Dzimšanas diena',
+    CHOOSE_BIRTHDAY: 'Izvēlies datumu...',
 
     //University
-    UNIVERSITY_NAME: 'Fullname lv',
+    UNIVERSITY_NAME: 'Pilns vārds',
 
     //Company
-    COMPANY_NAME: 'Company Name lv',
-    COMPANY_TYPE: 'Company Type lv',
-    COMPANY_CONTACT_PERSON_NAME: 'Person name lv',
-    COMPANY_DESCRIPTION: 'Company Description lv',
-    COMPANY_PRIVATE: 'Private',
-    COMPANY_PUBLIC: 'Public',
-    COMPANY_NGO: 'NGO',
-    COMPANY_GOVERNMENT: 'Government',
-    COMPANY_EDUCATIONAL: 'Educational',
-    COMPANY_OTHER: 'Other',
-    COMPANY_ADDRESS: 'Company Address lv',
-    COMPANY_WEBSITE: 'Company Website lv',
-    COMPANY_CONTACT_PERSON_TITLE: 'Person Title lv',
-    COMPANY_CONTACT_PERSON_EMAIL: 'Person Email lv',
+    COMPANY_NAME: 'Kompānijas nosaukums',
+    COMPANY_TYPE: 'Kompānijas veids',
+    COMPANY_CONTACT_PERSON_NAME: 'Kontaktpersonas vārds',
+    COMPANY_DESCRIPTION: 'Kompānijas apraksts',
+    COMPANY_PRIVATE: 'Privāra',
+    COMPANY_PUBLIC: 'Publiska',
+    COMPANY_NGO: 'Nevalstiskā organizācija',
+    COMPANY_GOVERNMENT: 'Valsts vai pašvaldības iestāde',
+    COMPANY_EDUCATIONAL: 'Izglītības iestāde',
+    COMPANY_OTHER: 'Cits',
+    COMPANY_ADDRESS: 'Kompānijas adrese',
+    COMPANY_WEBSITE: 'Kompānijas mājaslapa',
+    COMPANY_CONTACT_PERSON_TITLE: 'Kontaktpersonas amats',
+    COMPANY_CONTACT_PERSON_EMAIL: 'Kontaktpersonas e-pasts',
     COMPANY_CONTACT_PERSON_DEPARTMENT: 'Person Department lv',
-    COMPANY_CONTACT_PERSON_PHONE: 'Person phone number lv',
+    COMPANY_CONTACT_PERSON_PHONE: 'Kontaktpersonas telefona numurs',
 
     //Post
-    POST_TITLE_EN: 'Post title in English lv',
-    POST_TITLE_LV: 'Post title in Latvian lv',
-    POST_DESCRIPTION_EN: 'Post description in English lv',
-    POST_DESCRIPTION_LV: 'Post description in Latvian lv',
-    POST_NUM_SLOT: 'Number of slots lv',
-    POST_START_END_DATE: 'Post start & end date lv',
-    POST_START_DATE: 'Start date lv',
-    POST_END_DATE: 'End date lv',
-    POST_STUDENT_LIST: 'Student applied list lv',
-    POST_QUEUE_LIST: 'Student queue list lv',
+    POST_TITLE_EN: 'Idejas tēma EN',
+    POST_TITLE_LV: 'Idejas tēma LV',
+    POST_DESCRIPTION_EN: 'Idejas apraksts angļu valodā',
+    POST_DESCRIPTION_LV: 'Idejas apraksts latviešu valodā',
+    POST_NUM_SLOT: 'Dalībnieku skaits',
+    POST_START_END_DATE: 'Ieraksta izpildes laiks sākums & beigu datums',
+    POST_START_DATE: 'Sākuma datums',
+    POST_END_DATE: 'Beigu datums',
+    POST_STUDENT_LIST: 'Studentu pieteikumu saraksts',
+    POST_QUEUE_LIST: 'Studentu rindas saraksts',
 
-    POST_TITLE: 'Post title lv',
-    NUM_SLOT: 'Slots lv',
-
+    POST_TITLE: 'Idejas tēma',
+    NUM_SLOT: 'Dalībnieku',
   }
 };
